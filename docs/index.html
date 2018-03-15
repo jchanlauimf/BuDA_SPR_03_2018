@@ -1,0 +1,640 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section> <!-- Cover slide -->
+					<p style="font-size:100%"><font color="3182bd">BuDA: A Bottom-Up Default Analysis Platform for </br>Macrofinancial Analysis</font></p>
+					<span style="display:block; height:0.5em"></span>
+					<font color="bdd7e7">
+					<p style="font-size:70%">Jorge A. Chan-Lau</p>
+					<p style="font-size:50%">Institute for Capacity and Development, International Monetary Fund</br>
+					Credit Research Initiative, National University of Singapore
+					</p>
+					<p style="font-size:50%">Joint work with J.-C. Duan, W. Miao, and the Credit Research Initiative team of the </br>National University 
+						of Singapore</p>
+					<!-- <span style="display:block; height:0.1em"></span> -->
+					<p style="font-size:50%">
+						International Monetary Fund </br>						
+						March 15, 2018
+					</p>
+					</font>
+				</section>	
+
+				<section> <!-- Overview -->
+						<p style="font-size:140%" align="left">					
+						<font color="#3182bd">Outline</font></p>
+						<span style="display:block; height:0.3em"></span>
+						<p style="padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Conceptual framework </b>
+						<p style="padding-left:1.5em;" align="left">
+						&#9723 &ensp; Modeling methodology</p>
+						<p style="padding-left:1.5em;" align="left">
+						&#9723 &ensp; Differences with other approaches </p>	
+						<p style="padding-left:1.5em;" align="left">
+						&#9723 &ensp; Surveillance applications </p>	
+						<p style="padding-left:1.5em;" align="left">
+						&#9723 &ensp; Using BuDA </p>	
+
+				</section>	
+
+				<section> <!-- Begin Conceptual Framework Section -->	
+					<section> <!-- Introductory slide -->
+						<span style="display:block; height:3em"></span>							
+						<p style="font-size:200%" align="left">					
+						<font color="#3182bd">Part 1:</br> Conceptual Framework</font></p>										
+					</section>
+				
+					<section> <!-- Macrofinancial challenge slide 1 -->
+						<p style="font-size:140%" align="left">					
+						<font color="#3182bd">The macrofinancial challenge</font></p>
+						<span style="display:block; height:0.3em"></span>
+						<p class="fragment fade-in" style="padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Analyze <font color="FF0000">"What-if"</font> macro-financial scenarios </p>
+						<p class="fragment fade-in" style="padding-left:1.5em;" align="left">
+						&#9723 &ensp; Project default risk of individual firms</br> &ensp; &ensp; &nbsp; (financial/non-financial)</p>
+						<p class="fragment fade-in" style="padding-left:1.5em;" align="left">
+						&#9723 &ensp; Model should accommodate Big Data </p>	
+					</section>
+			
+					<section data-background-color="#000000"> <!-- Macrofinancial challenge slide 2 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">&nbsp; The macrofinancial challenge</font></p>
+						<video class="stretch" data-autoplay src="BuDA_01.mp4"></video> 
+					</section>
+
+					<section>  <!--Macrofinancial challenge slide 3 -->
+						<p><font color="#3182bd">China: financial firms, 1-year PD distribution</font></p>					
+						<p class="stretch"><img data-src="figChinaDistribution.png"></p>					
+					</section>
+
+					<section> <!-- Macrofinancial challenge slide 4 -->
+						<p style="font-size:140%" align="left">					
+						<font color="#3182bd">Our solution</font></p>
+						<p class="fragment fade-in;" style="font-size:100%;" align="left">						
+						<span style="display:block; height:0.3em"></span>							
+						<font color="#ff0000">BuDA: A Bottom-Up Default Analysis Platform</font>
+						</p>
+						<p></p>
+						<p class="fragment fade-in;" style="font-size:70%" align="left">						
+						Computational platform developed by <font color="#85ff33">Jin-Chuan Duan </font> and <font color="#85ff33">Weimin Miao</font>, 
+						National University of Singapore, and <font color="#85ff33">Jorge A. Chan-Lau</font>, International Monetary Fund, with the support of the staff of the Credit Risk Initiative,
+						Risk Management Institute, National University of Singapore
+						</p>					
+					</section>
+	
+					<section> <!-- BuDA forecasting approach 1 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">&nbsp; BuDA forecasting approach</font></p>
+						<p class="stretch"> 
+							<img data-src="BuDA_02.png">											
+						</p>
+					</section>
+
+					<section> <!-- BuDA forecasting approach 2 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">&nbsp; BuDA forecasting approach</font></p>
+						<p class="stretch"> 
+							<img data-src="BuDA_03.png">											
+						</p>
+					</section>
+
+					<section> <!-- BuDA Platform 1 -->
+						<p class="stretch"> 
+							<img data-src="figBuDA.PNG"></p>											
+						<p style="font-size:75%; padding-left:5.5em;" align="left">									
+						&#9723 &ensp; Matlab interactive toolbox </p>												
+						<p style="font-size:75%; padding-left:5.5em;" align="left">			
+						&#9723 &ensp; Thirty nine (39) countries </p>
+						<p style="font-size:75%; padding-left:5.5em;" align="left">			
+						&#9723 &ensp; 10000+ publicly listed firms </p>
+						<p style="font-size:75%; padding-left:5.5em;" align="left">									
+						&#9723 &ensp; Can expand to 100+ countries </p>														
+					</section>
+
+					<section style="font-size:50%"> <!-- BuDA Platform 2 -->
+						<p style="font-size:200%" align="left">					
+						<font color="#3182bd">Current coverage</font></p>					
+						<table style="width:100%">
+						<td colspan="7"><font color="aquamarine">G-7 countries</font? </td>
+						<tr>
+							<td> Canada</td>    
+							<td> France</td>        
+							<td> Germany</td>            
+							<td> Italy</td>            
+							<td> Japan </td>                
+							<td> UK</td>                        
+							<td> USA</td>                    
+						<tr>
+						</table>
+
+						<table style="width:100%">
+							<td colspan="5"><font color="aquamarine">Advanced Europe</font></td>
+						<tr>
+							<td>Austria</td>
+							<td>Belgium</td>
+							<td>Finland</td>    
+							<td>Greece</td>        
+							<td>Ireland</td>            
+						<tr>
+							<td>Luxembourg</td>                
+							<td>Portugal</td>
+							<td>Spain</td>   
+							<td colspan="2">The Netherlands</td>
+						<tr>
+						</table>
+
+						<table style="width:100%">
+							<td colspan="5"><font color="aquamarine">Asia</font></td>
+						<tr>
+							<td> China</td>
+							<td> Hong Kong SAR </td>
+							<td> Taiwan POC</td>
+							<td> India</td>
+							<td> Indonesia</td>
+						<tr>
+							<td> Malaysia</td>    
+							<td> Singapore</td>
+							<td> Thailand</td>        
+							<td colspan="2"> The Philippines </td>            
+						<tr>
+						</table>
+
+						<table style="width:100%">
+						<td colspan="5"><font color="aquamarine">EMEA economies</font></td>
+						<tr>
+							<td> Kenya</td>
+							<td> Mauritius</td>    
+							<td> Nigeria </td>
+							<td> South Africa</td>
+							<td> Turkey</td>
+						<tr>
+							<td colspan="5"> United Arab Emirates</td>    
+						<tr>
+						</table>
+
+						<table style="width:100%">
+						<td colspan="5"><font color="aquamarine">Latin America and the Caribbean</font></td>
+						<tr>
+							<td> Argentina </td>
+							<td> Brazil</td>
+							<td> Chile</td>
+							<td> Colombia </td>
+							<td> Jamaica</td>
+						<tr>    
+							<td> Mexico</td>    
+							<td> Peru</td>        
+							<td colspan="3"> Venezuela</td>
+						<tr>
+						</table>
+					</section>
+
+					<section > <!-- BuDA Platform 3 -->
+						<p style="font-size:120%;" align="left">						
+						<font color="3182bd">BuDA Surveillance Applications</font>
+						<p class="fragment fade-left" style="padding-left:1.5em;" align="left"><font color="#85ff33">2016 Article IV Canada</font></p>
+						<p class="fragment fade-left" style="padding-left:1.5em;" align="left"><font color="#85ff33">2016 Article IV Chile</font></p>
+						<p class="fragment fade-left" style="padding-left:1.5em;" align="left"><font color="#85ff33">2016 Article IV Indonesia</font></p>
+						<p class="fragment fade-left" style="padding-left:1.5em;" align="left"><font color="#85ff33">2016 Article IV United Arab Emirates</font> </p>			
+						<p class="fragment fade-left" style="padding-left:1.5em;" align="left"><font color="#ff8800">2016 WHD Regional Economic Outlook</font> </p>
+						<p class="fragment fade-left" style="padding-left:1.5em;" align="left"><font color="#f033ff">2017 FSAP China</font></p>
+						<p class="fragment fade-left" style="padding-left:1.5em;" align="left"><font color="#f033ff">2017 FSAP Japan</font></p>																																		
+					</section>
+
+					<section> <!-- BuDA Japan -->
+						<p>	<font color="#3182bd">Japan, median 1-year PD of financial firms,</br> scenario analysis </font></p>					
+						<p class="stretch"><img data-src="figJapanFSAP.png"></p>
+					</section>
+
+					<section> <!-- BuDA China -->
+						<p><font color="#3182bd">China, median 1-year PD of financial firms,</br> scenario analysis</font></p>					
+						<p class="stretch"><img data-src="figChinaFinancials.png"></p>
+					</section>
+
+				</section><!-- End Conceptual Framework Section -->
+
+				<section> <!-- Begin Modeling Methodology Section -->
+
+					<section> <!-- Cover slide -->
+						<span style="display:block; height:3em"></span>							
+						<p style="font-size:200%" align="left">					
+						<font color="#3182bd">Part 2:</br>Modeling methodology</font></p>										
+					</section>
+
+					<section> <!-- 2 step approach -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">A two step approach</font></p>
+						<span style="display:block; height:0.3em"></span>
+						<p class="fragment fade-in" style="padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Use scenario variables to project risk factors </p>
+						<p class="fragment fade-in" style="padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Project PDs using projected risk factors </p>						
+						<p class="stretch; fragment fade-in"><img data-src="figForecastingRegression.png"></p>												
+					</section>
+
+					<section> <!-- Risk factors -->
+						<p style="font-size:120%" align="center">					
+						<font color="#3182bd">Risk factors for forecasting PDs</font></p>
+						<span style="display:block; height:0.3em"></span>
+						<p class="stretch"><img data-src="figRiskFactors.png"></p>																		
+					</section>
+
+					<section> <!-- PD modeling cover -->
+						<span style="display:block; height:3em"></span>							
+						<p style="font-size:160%" align="left">					
+						<font color="#3182bd">Part 2A:</br>PD Modeling</font></p>										
+					</section>					
+
+					<section> <!-- PD modeling 1 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">Default and insolvency</font></p>
+						<span style="display:block; height:0.3em"></span>
+						<p class= style="padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Default: failure to pay or deliver </p>
+						<p class= style="padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Insolvency: asset value < liability values </p>
+						<p class= style="padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Cash-flow insolvency: Liquidity-driven default </p>
+					</section>
+
+					<section> <!-- PD modeling 2 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">Types of default risk models</font></p>
+						<span style="display:block; height:0.3em"></span>
+						<p style="padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Structural models, i.e. Merton-type</p>
+						<p style="padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Reduced form models, i.e. Intensity models </p>
+					</section>
+					
+					<section> <!-- PD modeling 3 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">Reduced form models</font></p>
+						<span style="display:block; height:0.3em"></span>
+						<p style="font-size:80%; padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Statistical relationship between default and predictors</p>
+						<p style="font-size:80%;padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Choice of predictors</p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">			
+						&#9723 &ensp; Economic intuition </p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">			
+						&#9723 &ensp; Data mining </p>
+						<p style="font-size:80%; padding-left:1.5em;" align="left">			
+						&#9723 &ensp; BuDA: Duan-Sun-Wang (DSW) forward intensity model </p>										
+						<p style="font-size:75%; padding-left:3.5em;" align="left">			
+						&#9723 &ensp; Can model term structure of default </p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">			
+						&#9723 &ensp; Captures other exits </p>
+					</section>
+
+					<section> <!-- PD Modeling 4 -->
+						<p style="font-size:100%" align="center">					
+						<font color="#3182bd">Other exits matter</font></p>
+						<p class="fragment fade-in"><img data-src="figOtherExits.png"></p>																		
+					</section>
+
+					<section> <!-- PD modeling 5 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">DSW model (2012, <em> J. of Econometrics</em>) </font></p>
+						<span style="display:block; height:0.3em"></span>
+						<p style="font-size:80%; padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Two poisson processes</p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">			
+						&#9723 &ensp; Default/bankruptcy </p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; Other exits </p>						
+						<p style="font-size:80%;padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Forward intensities depend on risk factors</p>
+						<p style="font-size:80%; padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Pseudo maximum likelihood estimation </p>
+					</section>					
+
+					<section> <!-- PD modeling 6 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">DSW model data </font></p>
+						<span style="display:block; height:0.3em"></span>
+						<p style="font-size:80%; padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Sample: 1991 - present, monthly data</p>
+						<p style="font-size:80%; padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Default events</p>						
+						<p style="font-size:75%; padding-left:3.5em;" align="left">			
+						&#9723 &ensp; Bloomberg </p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; Corporate announcements </p>						
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; Credit rating agencies </p>						
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; News sources </p>												
+						<p style="font-size:89%; padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Financial data </p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">			
+						&#9723 &ensp; Bloomberg BackOffice </p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; Compustat </p>												
+					</section>					
+
+					<section> <!-- PD modeling 7 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">DSW model monthly calibration </font></p>
+						<span style="display:block; height:0.3em"></span>
+						<p style="font-size:80%; padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Calibration groups</p>						
+						<p style="font-size:75%; padding-left:3.5em;" align="left">			
+						&#9723 &ensp; North America </p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; Europe </p>						
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; Asia-Pacific Advanced Economies </p>						
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; Asia-Pacific Developing Economies </p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; EM Latam, Middle East, Africa </p>						
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; China </p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; India </p>											
+					</section>
+
+					<section> <!-- PD modeling 8 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">DSW prediction accuracy </font></p>						
+						<p class="fragment fade-in"><img data-src="figPDAccuracy.png"></p>
+					</section>
+
+					<section> <!-- RF modeling cover -->
+						<span style="display:block; height:3em"></span>							
+						<p style="font-size:160%" align="left">					
+						<font color="#3182bd">Part 2B:</br>Risk factor modeling</font></p>										
+					</section>			
+
+					<section> <!-- RF modeling 1 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">Common risk factor</font></p>
+						<p style="font-size:75%; padding-left:0em;" align="left">			
+						&#9723 &ensp; Regress common risk factors on covariates and lagged values</p>												
+						<p  style="font-size:75%" align="left">
+						$ \Delta X_{m,t} = \beta^{X}_{m,0} + \sum_{k=1}^{n} \beta^{X}_{m,k} Z_{k,t} + 
+						\gamma^{X}_{m,1} X_{m,t-1} + \gamma^{X}_{m,2} X_{m,t-2} + \epsilon^{X}_{m,t}$
+						</p>
+						<p style="font-size:75%; padding-left:0em;" align="left">			
+						where: 
+						<p style="font-size:75%; padding-left:0em;" align="left">			
+						$X_m: \text{  common risk factors, } m = 1, 2$
+						<p style="font-size:75%; padding-left:0em;" align="left">			
+						$Z_k: \text{   } kth \text{ scenario variable}$
+					</section>
+
+					<section> <!-- RF modeling 2 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">Firm specific risk factor</font></p>
+						<p style="font-size:75%; padding-left:0em;" align="left">			
+						&#9723 &ensp; Regress average industry risk factor on covariates and lagged values</p>												
+						<p  style="font-size:75%" align="left">
+						$ \Delta {\bar{Y}}_{i,j,t} = \beta^{Y}_{i,j,0} + \sum_{k=1}^{n} \beta^{Y}_{i,j,k} Z_{k,t} + 
+						\gamma^{Y}_{i,j,1} {\bar{Y}}_{i,j,t-1} + \gamma^{Y}_{i,j,2} {\bar{Y}}_{i,j,t-2} + \epsilon^{Y}_{i,j,t}$							
+												</p>
+						<p style="font-size:75%; padding-left:0em;" align="left">			
+						where: 
+						<p style="font-size:75%; padding-left:0em;" align="left">			
+						$Y_{i,j}:\text{   }ith \text{ country industry average of firm specific risk factor } j$
+						<p style="font-size:75%; padding-left:0em;" align="left">			
+						$Z_k: \text{   } kth \text{ scenario variable}$
+					</section>			
+
+					<section> <!-- RF modeling 3 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">Risk factor regression accuracy </font></p>						
+						<p class="fragment fade-in"><img data-src="figRiskFactorModel.png"></p>
+					</section>
+
+					<section data-background-color="#000000"> <!-- Macrofinancial challenge slide 2 -->
+						<p style="font-size:100%" align="left">					
+						<font color="#3182bd">&nbsp; Firm-specific risk factor projection for individual firms</font></p>
+						<video class="stretch" data-autoplay src="BuDA_04.mp4"></video> 
+					</section>
+				</section><!-- End Modeling Methodology Section -->
+
+				<section> <!-- Differences with MKV -->
+
+					<section> <!-- Cover slide -->
+						<span style="display:block; height:3em"></span>							
+						<p style="font-size:200%" align="left">					
+						<font color="#3182bd">Part 3:</br>BuDA and Moody's KMV</font></p>										
+					</section>
+
+					<section> <!-- Differences with Moody's 1 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">Issues</font></p>
+						<span style="display:block; height:0.3em"></span>
+						<p style="padding-left:1.5em; font-size:80%" align="left">			
+						&#9723 &ensp; BuDA PD < Moody's EDF (Low, medium risk firms) </p>
+						<p style="padding-left:1.5em; font-size:80%" align="left">			
+						&#9723 &ensp; BuDA PD > Moody's EDF (high risk firms) </p>
+						<p style="font-size:80%; padding-left:1.5em;" align="left">			
+						&#9723 &ensp; Potential reasons</p>						
+						<p style="font-size:75%; padding-left:3.5em;" align="left">			
+						&#9723 &ensp; Moody's does not model PDs</p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; Different calibration samples </p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">									
+						&#9723 &ensp; Moody's does not model other exits</p>
+					</section>
+
+					<section> <!-- Differences with Moody's 2 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">Moody's EDF Methodology</font></p>						
+						<p><img data-src="figMoodys01.png"></p>
+					</section>
+
+					<section> <!-- Differences with Moody's 3 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">Moody's EDF Calibration</font></p>						
+						<p><img data-src="figMoodys.png"></p>
+					</section>
+
+				</section><!-- End Differences with MKV -->
+
+				<section> <!-- Surveillance Applications -->
+
+					<section> <!-- Cover slide -->
+						<span style="display:block; height:3em"></span>							
+						<p style="font-size:200%" align="left">					
+						<font color="#3182bd">Part 4:</br>Surveillance Applications</font></p>										
+					</section>
+
+					<section> <!-- Surveillance 1 -->
+						<p style="font-size:100%" align="center">					
+						<font color="#3182bd">2016 Article IV Chile</font></p>						
+						<p><img data-src="figChilePDBaselinePessimistic.png"></p>
+					</section>
+
+					<section> <!-- Surveillance 2 -->
+						<p style="font-size:100%" align="center">					
+						<font color="#3182bd">2016 Article IV Chile</font></p>						
+						<p><img data-src="figChilePDRegional.png"></p>
+					</section>
+
+					<section> <!-- Surveillance 3 -->
+						<p style="font-size:100%" align="center">					
+						<font color="#3182bd">2016 Article IV Chile</font></p>						
+						<p><img data-src="figChilePessimistic.png"></p>
+					</section>
+
+				</section><!-- End Surveillance Applications -->
+
+				<section> <!-- Using BuDA -->
+
+					<section> <!-- Cover slide -->
+						<span style="display:block; height:3em"></span>							
+						<p style="font-size:200%" align="left">					
+						<font color="#3182bd">Part 5:</br>Using BuDA</font></p>										
+					</section>
+
+					<section> <!-- BuDA 1 -->
+						<p><img data-src="User01.png"></p>
+					</section>
+
+					<section> <!-- BuDA 2 -->
+						<p><img data-src="User02.png"></p>
+					</section>
+
+					<section> <!-- BuDA 3 -->
+						<p><img data-src="User03.png"></p>
+					</section>
+
+					<section> <!-- BuDA 4 -->
+						<p><img data-src="User04.png"></p>
+					</section>
+
+					<section> <!-- BuDA 5 -->
+						<p><img data-src="User05.png"></p>
+					</section>
+
+					<section> <!-- BuDA 6 -->
+						<p><img data-src="User06.png"></p>
+					</section>
+
+					<section> <!-- BuDA 7 -->
+						<p><img data-src="User07.png"></p>
+					</section>
+
+					<section> <!-- BuDA 8 -->
+						<p><img data-src="User08.png"></p>
+					</section>
+
+					<section> <!-- BuDA 9 -->
+						<p><img data-src="User09.png"></p>
+					</section>
+
+					<section> <!-- BuDA 10 -->
+						<p><img data-src="User10.png"></p>
+					</section>
+
+					<section> <!-- BuDA 11 -->
+						<p><img data-src="User11.png"></p>
+					</section>
+
+					<section> <!-- BuDA 12 -->
+						<p><img data-src="User12.png"></p>
+					</section>
+
+					<section> <!-- BuDA 13 -->
+						<p><img data-src="User13.png"></p>
+					</section>
+
+					<section> <!-- BuDA 14 -->
+						<p><img data-src="User14.png"></p>
+					</section>
+
+				</section><!-- End Using BuDA -->
+
+				<section> <!-- More resources -->
+
+					<section> <!-- Cover slide -->
+						<span style="display:block; height:3em"></span>							
+						<p style="font-size:200%" align="left">					
+						<font color="#3182bd">Appendix:</br>More resources</font></p>										
+					</section>
+
+					<section> <!-- BuDA web page 1 -->
+						<p style="font-size:120%" align="left">					
+						<font color="#3182bd">BuDA Web Page</font></p>
+						<span style="display:block; height:0.3em"></span>
+						<p style="padding-left:1.5em;" align="left">										
+						&#9723 &ensp; Link: <a href="https://jchanlauimf.github.io/BuDAWeb/">
+						<font color="ff0000">https://jchanlauimf.github.io/BuDAWeb/</a></font></p>
+						<p style="padding-left:1.5em;" align="left">										
+						&#9723 &ensp; Check the BuDA web page for:</p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">			
+						&#9723 &ensp; Complete documentation on methodology </p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">			
+						&#9723 &ensp; Links to surveillance documents </p>
+						<p style="font-size:75%; padding-left:3.5em;" align="left">			
+						&#9723 &ensp; Instructions on downloading BuDA </p>
+					</section>
+
+				</section><!-- End more resources -->
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: true,
+				progress: false,
+				defaulttiming: 20,
+				slideNumber: "c/t",
+				history: false,
+				keyboard: true,
+				overview: true,
+				autoSlide:false,
+				autoSlideStoppable: true,
+				loop: false,
+				autoPlayMedia: true,
+				transition: 'convex',
+				transitionSpeed: 'slow',
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/math/math.js'},
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+				if (event.currentSlide.id === 'last'){
+					window.location.href = 'index.html';
+					}
+				} ); 
+		</script>
+	</body>
+</html>
